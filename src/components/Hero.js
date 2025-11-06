@@ -27,8 +27,12 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-image">
-          <div className="profile-placeholder animate-on-scroll animate-scale">
-            <span>头像</span>
+          <div className="profile-photo animate-on-scroll animate-scale">
+            <img 
+              src="/images/profile.jpg" 
+              alt="个人头像" 
+              className="profile-image"
+            />
           </div>
         </div>
       </div>

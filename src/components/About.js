@@ -70,7 +70,11 @@ const About = () => {
             <div className="avatar-container animate-on-scroll animate-fade-left">
               <div className="avatar">
                 <div className="avatar-image">
-                  <span className="avatar-icon">👨‍💻</span>
+                  <img 
+                    src="/images/profile.jpg" 
+                    alt="个人头像" 
+                    className="avatar-photo"
+                  />
                 </div>
                 <div className="avatar-glow"></div>
               </div>

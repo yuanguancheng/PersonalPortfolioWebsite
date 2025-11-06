@@ -17,7 +17,7 @@
     "react",
     "webpack"
   ],
-  "author": "",
+  "author": "袁观成",
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
