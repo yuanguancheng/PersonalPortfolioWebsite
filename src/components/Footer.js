@@ -50,15 +50,15 @@ const Footer = () => {
                 <i className="fab fa-github"></i>
                 GitHub
               </a>
-              <a href="https://gitee.com/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://gitee.com/yuan-guanchen" target="_blank" rel="noopener noreferrer" className="social-link">
                 <i className="fab fa-git-alt"></i>
                 Gitee
               </a>
-              <a href="https://juejin.cn/user/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://juejin.cn/user/2138965851777035" target="_blank" rel="noopener noreferrer" className="social-link">
                 <i className="fab fa-blog"></i>
                 掘金
               </a>
-              <a href="https://www.zhihu.com/people/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.zhihu.com/people/ygcygv" target="_blank" rel="noopener noreferrer" className="social-link">
                 <i className="fab fa-zhihu"></i>
                 知乎
               </a>
