@@ -71,7 +71,7 @@ const About = () => {
               <div className="avatar">
                 <div className="avatar-image">
                   <img 
-                    src="./images/profile.jpg" 
+                    src="/images/profile.jpg" 
                     alt="个人头像" 
                     className="avatar-photo"
                   />
