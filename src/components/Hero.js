@@ -29,7 +29,7 @@ const Hero = () => {
         <div className="hero-image">
           <div className="profile-photo animate-on-scroll animate-scale">
             <img 
-              src="/images/profile.jpg" 
+              src="./images/profile.jpg" 
               alt="个人头像" 
               className="profile-image"
             />
