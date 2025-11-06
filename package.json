@@ -6,9 +6,17 @@
   "scripts": {
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open"
+    "build:analyze": "npm run build && npx webpack-bundle-analyzer dist/static/js/*.js",
+    "start": "webpack serve --mode development --open",
+    "preview": "npm run build && npx serve dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
-  "keywords": ["portfolio", "react", "webpack"],
+  "keywords": [
+    "portfolio",
+    "react",
+    "webpack"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -20,9 +28,14 @@
     "@babel/preset-env": "^7.22.0",
     "@babel/preset-react": "^7.22.0",
     "babel-loader": "^9.1.0",
+    "core-js": "^3.46.0",
     "css-loader": "^6.8.0",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
     "style-loader": "^3.3.0",
+    "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.88.0",
     "webpack-cli": "^5.1.0",
     "webpack-dev-server": "^4.15.0"
