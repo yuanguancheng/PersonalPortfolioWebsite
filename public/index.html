@@ -3,12 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人作品集</title>
+    <meta name="description" content="个人作品集网站 - 展示我的技能、项目和联系方式">
+    <meta name="keywords" content="前端开发, React, JavaScript, 作品集, 个人网站">
+    <meta name="author" content="你的名字">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="个人作品集">
+    <meta property="og:description" content="展示我的技能、项目和联系方式">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="个人作品集">
+    <meta property="twitter:description" content="展示我的技能、项目和联系方式">
+    
+    <title>个人作品集 - 前端开发者</title>
+    
+    <!-- 字体预加载 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
-    <div id="root"></div>
+    <!-- 主要页面结构 -->
+    <div id="root">
+        <!-- React应用将在这里渲染 -->
+        <!-- 语义化结构：
+            - <header> 导航栏
+            - <main> 主要内容区域
+                - <section id="hero"> 首页英雄区域
+                - <section id="about"> 关于我
+                - <section id="skills"> 技能展示
+                - <section id="projects"> 项目展示
+                - <section id="contact"> 联系表单
+            - <footer> 页脚
+        -->
+    </div>
+    
+    <!-- 无JavaScript时的降级提示 -->
+    <noscript>
+        <div style="text-align: center; padding: 2rem; background: #f8f9fa;">
+            <h2>需要启用JavaScript</h2>
+            <p>此网站需要JavaScript才能正常运行。请启用浏览器中的JavaScript功能。</p>
+        </div>
+    </noscript>
 </body>
 </html>
