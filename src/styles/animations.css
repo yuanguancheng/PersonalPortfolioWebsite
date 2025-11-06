@@ -1,0 +1,424 @@
+/* ==========================================================================
+   动画系统 - 滚动动画和交互优化
+   ========================================================================== */
+
+/* 基础动画类 */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-complete {
+  /* 动画完成后保持状态 */
+  opacity: 1;
+}
+
+/* 延迟动画 */
+.animate-delay-100 {
+  transition-delay: 100ms;
+}
+
+.animate-delay-200 {
+  transition-delay: 200ms;
+}
+
+.animate-delay-300 {
+  transition-delay: 300ms;
+}
+
+.animate-delay-400 {
+  transition-delay: 400ms;
+}
+
+.animate-delay-500 {
+  transition-delay: 500ms;
+}
+
+/* 不同的动画类型 */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-rotate {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 动画触发时的状态 */
+.animate-fade-up.animate-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animate-fade-down.animate-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animate-fade-left.animate-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-fade-right.animate-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-scale.animate-in {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.animate-rotate.animate-in {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   交互反馈优化
+   ========================================================================== */
+
+/* 按钮交互优化 */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.btn-interactive::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-interactive:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-interactive:active {
+  transform: scale(0.98);
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transition: left 0.5s;
+}
+
+.card-hover:hover::before {
+  left: 100%;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* 表单交互优化 */
+.form-group {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.form-input {
+  transition: all var(--transition-normal);
+  border: 2px solid var(--color-gray-200);
+  background: var(--color-white);
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-input:valid {
+  border-color: var(--color-success);
+}
+
+.form-input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: var(--color-error);
+}
+
+/* 输入框标签动画 */
+.floating-label {
+  position: relative;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+  color: var(--color-gray-500);
+  transition: all var(--transition-normal);
+  pointer-events: none;
+  background: var(--color-white);
+  padding: 0 var(--space-2);
+}
+
+.floating-label input:focus+label,
+.floating-label input:not(:placeholder-shown)+label {
+  top: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ==========================================================================
+   微交互效果
+   ========================================================================== */
+
+/* 加载动画 */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 脉冲动画 */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 呼吸动画 */
+.breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 打字机效果 */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--color-primary);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--color-primary);
+  }
+}
+
+/* ==========================================================================
+   滚动进度指示器
+   ========================================================================== */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  z-index: 1001;
+  transition: width 0.1s ease;
+}
+
+/* ==========================================================================
+   视差滚动效果
+   ========================================================================== */
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-content {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ==========================================================================
+   页面切换动画
+   ========================================================================== */
+
+.page-transition {
+  animation: pageIn 0.6s ease-out;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   响应式动画优化
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-on-scroll,
+  .animate-fade-up,
+  .animate-fade-down,
+  .animate-fade-left,
+  .animate-fade-right,
+  .animate-scale,
+  .animate-rotate,
+  .btn-interactive,
+  .card-hover,
+  .form-input,
+  .loading-spinner,
+  .pulse,
+  .breathe,
+  .typewriter,
+  .scroll-progress,
+  .parallax,
+  .page-transition {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .animate-on-scroll,
+  .animate-fade-up,
+  .animate-fade-down,
+  .animate-fade-left,
+  .animate-fade-right,
+  .animate-scale,
+  .animate-rotate {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover:hover {
+    transform: none;
+  }
+
+  .card-hover:active {
+    transform: scale(0.98);
+  }
+
+  .btn-interactive:hover::before {
+    width: 0;
+    height: 0;
+  }
+
+  .btn-interactive:active::before {
+    width: 200px;
+    height: 200px;
+  }
+}

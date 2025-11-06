@@ -13,10 +13,10 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <h2 className="section-title">关于我</h2>
+        <h2 className="section-title animate-on-scroll animate-fade-up">关于我</h2>
         <div className="about-content">
           <div className="about-text">
-            <div className="intro-section">
+            <div className="intro-section animate-on-scroll animate-fade-right">
               <h3>你好！我是前端开发者</h3>
               <p>
                 我是一名充满热情的前端开发者，专注于创建现代化、响应式的Web应用。
@@ -28,11 +28,15 @@ const About = () => {
               </p>
             </div>
             
-            <div className="interests-section">
+            <div className="interests-section animate-on-scroll animate-fade-right animate-delay-200">
               <h4>我的兴趣领域</h4>
               <div className="interests-grid">
                 {interests.map((interest, index) => (
-                  <div key={index} className="interest-item">
+                  <div 
+                    key={index} 
+                    className="interest-item card-hover animate-on-scroll"
+                    style={{ animationDelay: `${index * 100 + 400}ms` }}
+                  >
                     <div className="interest-icon">{interest.icon}</div>
                     <div className="interest-content">
                       <h5>{interest.name}</h5>
@@ -43,28 +47,27 @@ const About = () => {
               </div>
             </div>
             
-            <div className="about-stats">
-              <div className="stat">
-                <h3>2+</h3>
-                <p>年开发经验</p>
-              </div>
-              <div className="stat">
-                <h3>10+</h3>
-                <p>完成项目</p>
-              </div>
-              <div className="stat">
-                <h3>100%</h3>
-                <p>代码质量</p>
-              </div>
-              <div className="stat">
-                <h3>24/7</h3>
-                <p>学习热情</p>
-              </div>
+            <div className="about-stats animate-on-scroll animate-fade-up animate-delay-300">
+              {[
+                { value: '2+', label: '年开发经验' },
+                { value: '10+', label: '完成项目' },
+                { value: '100%', label: '代码质量' },
+                { value: '24/7', label: '学习热情' }
+              ].map((stat, index) => (
+                <div 
+                  key={index} 
+                  className="stat card-hover"
+                  style={{ animationDelay: `${index * 100 + 600}ms` }}
+                >
+                  <h3>{stat.value}</h3>
+                  <p>{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
           
           <div className="about-image">
-            <div className="avatar-container">
+            <div className="avatar-container animate-on-scroll animate-fade-left">
               <div className="avatar">
                 <div className="avatar-image">
                   <span className="avatar-icon">👨‍💻</span>
