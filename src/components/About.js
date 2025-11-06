@@ -71,7 +71,7 @@ const About = () => {
               <div className="avatar">
                 <div className="avatar-image">
                   <img 
-                    src="/images/profile.jpg" 
+                    src={process.env.NODE_ENV === 'production' ? '/PersonalPortfolioWebsite/images/profile.jpg' : '/images/profile.jpg'} 
                     alt="个人头像" 
                     className="avatar-photo"
                   />
