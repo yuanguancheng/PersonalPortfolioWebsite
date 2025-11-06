@@ -25,54 +25,54 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-info">
-            <h3>个人作品集</h3>
-            <p>感谢访问我的作品集网站</p>
+            <h3>袁观成 - 前端开发者</h3>
+            <p>专注于现代化Web开发，创造优秀的用户体验</p>
             <div className="contact-info">
-              <p><i className="fas fa-envelope"></i> email@example.com</p>
-              <p><i className="fas fa-phone"></i> +86 138 0000 0000</p>
-              <p><i className="fas fa-map-marker-alt"></i> 中国，北京</p>
+              <p><i className="fas fa-envelope"></i> 1982097578@qq.com</p>
+              <p><i className="fas fa-phone"></i> +86 150 0728 4553</p>
+              <p><i className="fas fa-map-marker-alt"></i> 中国，湖北</p>
             </div>
           </div>
           <div className="footer-links">
-            <h4>快速链接</h4>
+            <h4>快速导航</h4>
             <ul>
               <li><a href="#hero">首页</a></li>
               <li><a href="#about">关于我</a></li>
-              <li><a href="#skills">技能</a></li>
-              <li><a href="#projects">项目</a></li>
-              <li><a href="#contact">联系</a></li>
+              <li><a href="#skills">技能展示</a></li>
+              <li><a href="#projects">项目作品</a></li>
+              <li><a href="#contact">联系合作</a></li>
             </ul>
           </div>
           <div className="footer-social">
-            <h4>关注我</h4>
+            <h4>社交媒体</h4>
             <div className="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
                 <i className="fab fa-github"></i>
                 GitHub
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <i className="fab fa-linkedin"></i>
-                LinkedIn
+              <a href="https://gitee.com/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-git-alt"></i>
+                Gitee
               </a>
-              <a href="https://weibo.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <i className="fab fa-weibo"></i>
-                微博
+              <a href="https://juejin.cn/user/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-blog"></i>
+                掘金
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <i className="fab fa-twitter"></i>
-                Twitter
+              <a href="https://www.zhihu.com/people/yuanguancheng" target="_blank" rel="noopener noreferrer" className="social-link">
+                <i className="fab fa-zhihu"></i>
+                知乎
               </a>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 个人作品集. 保留所有权利. | 设计开发: 您的姓名</p>
-          <p>最后更新: {new Date().getFullYear()}年{new Date().getMonth() + 1}月</p>
+          <p>&copy; 2025 袁观成. 保留所有权利. | 设计开发: 袁观成</p>
+          <p>最后更新: {new Date().getFullYear()}年{new Date().getMonth() + 1}月{new Date().getDate()}日</p>
         </div>
       </div>
-      
+
       {/* 返回顶部按钮 */}
-      <button 
+      <button
         className={`scroll-top-btn ${showScrollTop ? 'show' : ''}`}
         onClick={scrollToTop}
         aria-label="返回顶部"
