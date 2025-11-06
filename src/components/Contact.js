@@ -16,14 +16,14 @@ const Contact = () => {
   // 表单验证规则
   const validateForm = () => {
     const newErrors = {};
-    
+
     // 姓名验证
     if (!formData.name.trim()) {
       newErrors.name = '请输入您的姓名';
     } else if (formData.name.trim().length < 2) {
       newErrors.name = '姓名至少需要2个字符';
     }
-    
+
     // 邮箱验证
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
@@ -31,14 +31,14 @@ const Contact = () => {
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = '请输入有效的邮箱地址';
     }
-    
+
     // 主题验证
     if (!formData.subject.trim()) {
       newErrors.subject = '请输入邮件主题';
     } else if (formData.subject.trim().length < 5) {
       newErrors.subject = '主题至少需要5个字符';
     }
-    
+
     // 消息验证
     if (!formData.message.trim()) {
       newErrors.message = '请输入您的留言内容';
@@ -47,7 +47,7 @@ const Contact = () => {
     } else if (formData.message.trim().length > 1000) {
       newErrors.message = '留言内容不能超过1000个字符';
     }
-    
+
     return newErrors;
   };
 
@@ -57,7 +57,7 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
-    
+
     // 实时验证
     if (errors[name]) {
       setErrors(prev => ({
@@ -69,27 +69,27 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
-    
+
     setIsSubmitting(true);
     setSubmitStatus('');
-    
+
     try {
       // 模拟表单提交
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setErrors({});
-      
+
       // 3秒后清除成功状态
       setTimeout(() => setSubmitStatus(''), 3000);
-      
+
     } catch (error) {
       setSubmitStatus('error');
     } finally {
@@ -102,25 +102,25 @@ const Contact = () => {
     {
       icon: '📧',
       label: '邮箱',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      value: '1982097578@qq.com',
+      link: 'mailto:1982097578@qq.com'
     },
     {
       icon: '📱',
       label: '电话',
-      value: '+86 138 0000 0000',
-      link: 'tel:+8613800000000'
+      value: '+86 150 0728 4553',
+      link: 'tel:+8615007284553'
     },
     {
       icon: '📍',
       label: '地址',
-      value: '中国，北京',
+      value: '中国，湖北',
       link: '#'
     },
     {
       icon: '💼',
       label: '微信',
-      value: 'wechat_id',
+      value: 'ygc15007284553',
       link: '#'
     }
   ];
@@ -130,7 +130,7 @@ const Contact = () => {
       <div className="container">
         <h2 className="section-title">联系我</h2>
         <p className="section-subtitle">有任何问题或合作意向，欢迎随时联系我</p>
-        
+
         <div className="contact-content">
           {/* 联系信息 */}
           <div className="contact-info">
@@ -138,12 +138,12 @@ const Contact = () => {
               <h3>联系方式</h3>
               <p>选择您喜欢的方式与我取得联系</p>
             </div>
-            
+
             <div className="contact-info-items">
               {contactInfo.map((item, index) => (
-                <a 
-                  key={index} 
-                  href={item.link} 
+                <a
+                  key={index}
+                  href={item.link}
                   className="contact-item"
                   target={item.link !== '#' ? '_blank' : '_self'}
                   rel="noopener noreferrer"
@@ -156,7 +156,7 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-            
+
             <div className="social-links">
               <h4>关注我的社交媒体</h4>
               <div className="social-icons">
@@ -175,14 +175,14 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           {/* 联系表单 */}
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <div className="form-header">
               <h3>发送消息</h3>
               <p>填写下面的表单，我会尽快回复您</p>
             </div>
-            
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">姓名 *</label>
@@ -198,7 +198,7 @@ const Contact = () => {
                 />
                 {errors.name && <span className="error-message">{errors.name}</span>}
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="email">邮箱 *</label>
                 <input
@@ -214,7 +214,7 @@ const Contact = () => {
                 {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="subject">主题 *</label>
               <input
@@ -229,7 +229,7 @@ const Contact = () => {
               />
               {errors.subject && <span className="error-message">{errors.subject}</span>}
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="message">留言内容 *</label>
               <textarea
@@ -247,10 +247,10 @@ const Contact = () => {
                 {errors.message && <span className="error-message">{errors.message}</span>}
               </div>
             </div>
-            
+
             <div className="form-actions">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className={`btn btn-primary ${isSubmitting ? 'submitting' : ''}`}
                 disabled={isSubmitting}
               >
@@ -267,7 +267,7 @@ const Contact = () => {
                 )}
               </button>
             </div>
-            
+
             {/* 提交状态提示 */}
             {submitStatus === 'success' && (
               <div className="submit-status success">
@@ -275,7 +275,7 @@ const Contact = () => {
                 消息发送成功！我会尽快回复您。
               </div>
             )}
-            
+
             {submitStatus === 'error' && (
               <div className="submit-status error">
                 <span className="status-icon">❌</span>
