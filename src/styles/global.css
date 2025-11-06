@@ -317,9 +317,43 @@ blockquote {
 }
 
 /* ==========================================================================
-   响应式设计
+   响应式设计 - 移动优先断点系统
    ========================================================================== */
 
+/* 超小屏幕 (手机竖屏) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-6);
+  }
+  
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+  h4 { font-size: var(--font-size-lg); }
+  
+  .btn {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-sm);
+    min-height: 40px;
+  }
+  
+  /* 触摸设备优化 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* 防止文本缩放 */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* 小屏幕 (手机横屏/小平板) */
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--space-4);
@@ -338,22 +372,146 @@ blockquote {
     padding: var(--space-3) var(--space-4);
     font-size: var(--font-size-sm);
   }
+  
+  /* 移动设备滚动优化 */
+  html {
+    scroll-padding-top: 80px; /* 导航栏高度 */
+  }
 }
+
+/* 中等屏幕 (平板/小桌面) */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--space-5);
+  }
+  
+  /* 平板优化 */
+  body {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* 大屏幕 (桌面) */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* 超大屏幕 (大桌面) */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  body {
+    font-size: var(--font-size-lg);
+  }
+  
+  h1 { font-size: var(--font-size-6xl); }
+  h2 { font-size: var(--font-size-5xl); }
+}
+
+/* ==========================================================================
+   无障碍和特殊模式支持
+   ========================================================================== */
 
 /* 高对比度模式支持 */
 @media (prefers-contrast: high) {
   :root {
     --color-primary: #0056b3;
     --color-secondary: #000000;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.9);
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
   }
 }
 
-/* 深色模式支持（可选） */
+/* 深色模式支持 */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-white: #121416;
     --color-gray-50: #1a252f;
+    --color-gray-100: #2c3e50;
+    --color-gray-200: #34495e;
+    --color-gray-300: #4a6278;
+    --color-gray-400: #6c8ba5;
+    --color-gray-500: #95a5a6;
+    --color-gray-600: #bdc3c7;
+    --color-gray-700: #d5dbdb;
     --color-gray-800: #e9ecef;
     --color-gray-900: #f8f9fa;
+    --color-black: #ffffff;
+  }
+  
+  /* 深色模式下的阴影调整 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* 减少运动支持 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  /* 移除悬停效果，使用点击状态 */
+  .btn:hover,
+  .nav-link:hover,
+  .skill-item:hover,
+  .project-card:hover {
+    transform: none;
+  }
+  
+  /* 增加触摸目标尺寸 */
+  .nav-link,
+  .filter-btn,
+  .social-link {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .header,
+  .footer,
+  .scroll-top-btn {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
   }
 }

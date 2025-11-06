@@ -212,7 +212,11 @@
   }
 }
 
-/* 小屏幕优化 */
+/* ==========================================================================
+   响应式设计 - Header部分
+   ========================================================================== */
+
+/* 超小屏幕 (手机竖屏) */
 @media (max-width: 480px) {
   .logo h2 {
     font-size: var(--font-size-lg);
@@ -225,7 +229,81 @@
   .header.scrolled .container {
     padding: var(--space-2) var(--space-4);
   }
+  
+  .nav {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+  
+  .nav-link {
+    padding: var(--space-3) var(--space-3);
+    font-size: var(--font-size-base);
+    min-height: 48px;
+  }
+  
+  .menu-toggle {
+    padding: var(--space-2);
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
+
+/* 小屏幕 (手机横屏) */
+@media (max-width: 768px) and (orientation: landscape) {
+  .nav {
+    height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .nav-link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+  }
+}
+
+/* 中等屏幕 (平板) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-list {
+    gap: var(--space-4);
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-sm);
+    padding: var(--space-2) var(--space-2);
+  }
+  
+  .logo h2 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1280px) {
+  .nav-list {
+    gap: var(--space-8);
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-base);
+    padding: var(--space-2) var(--space-4);
+  }
+}
+
+/* 超大屏幕 */
+@media (min-width: 1536px) {
+  .header .container {
+    max-width: 1400px;
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ==========================================================================
+   特殊模式支持
+   ========================================================================== */
 
 /* 无障碍访问支持 */
 @media (prefers-reduced-motion: reduce) {
@@ -234,6 +312,10 @@
   .menu-toggle span {
     transition: none;
   }
+  
+  .header.scrolled {
+    backdrop-filter: none;
+  }
 }
 
 /* 高对比度模式 */
@@ -241,5 +323,81 @@
   .nav-link.active {
     outline: 2px solid currentColor;
     outline-offset: 2px;
+  }
+  
+  .header {
+    border-bottom: 2px solid var(--color-gray-300);
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: var(--color-gray-900);
+  }
+  
+  .header.scrolled {
+    background-color: rgba(18, 20, 22, 0.95);
+  }
+  
+  .nav-link {
+    color: var(--color-gray-300);
+  }
+  
+  .nav-link:hover {
+    background-color: var(--color-gray-800);
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:hover {
+    background-color: transparent;
+    color: var(--color-gray-700);
+  }
+  
+  .nav-link:active {
+    background-color: var(--color-gray-100);
+    color: var(--color-primary);
+  }
+  
+  .menu-toggle:active {
+    background-color: var(--color-gray-100);
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .header {
+    position: static;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  
+  .header .container {
+    padding: var(--space-4) 0 !important;
+  }
+  
+  .menu-toggle {
+    display: none !important;
+  }
+  
+  .nav {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .nav-list {
+    flex-direction: row !important;
+    gap: var(--space-4) !important;
+  }
+  
+  .nav-link {
+    color: #000 !important;
+    background: transparent !important;
   }
 }

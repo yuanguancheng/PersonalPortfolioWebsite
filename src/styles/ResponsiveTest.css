@@ -1,0 +1,303 @@
+/* ==========================================================================
+   响应式测试页面样式
+   ========================================================================== */
+
+.responsive-test {
+  padding: var(--space-20) 0;
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+  min-height: 100vh;
+}
+
+.breakpoint-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+
+.breakpoint-indicator {
+  background: var(--color-white);
+  padding: var(--space-4);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  border-left: 4px solid var(--color-primary);
+  transition: transform var(--transition-normal);
+}
+
+.breakpoint-indicator:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.breakpoint-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.breakpoint-range {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-1);
+}
+
+.breakpoint-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.test-item {
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-gray-100);
+}
+
+.test-item h3 {
+  color: var(--color-secondary);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-xl);
+}
+
+/* 网格测试 */
+.grid-test {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-3);
+}
+
+.grid-item {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-3);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  transition: transform var(--transition-fast);
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+/* 排版测试 */
+.typography-test p {
+  margin-bottom: var(--space-2);
+  padding: var(--space-2);
+  background: var(--color-gray-50);
+  border-radius: var(--border-radius);
+}
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+
+/* 按钮测试 */
+.button-test {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.button-test .btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* 图片测试 */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 设备模拟 */
+.device-emulation {
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.device-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.device-btn {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 120px;
+}
+
+.device-btn:hover {
+  background: var(--color-gray-200);
+  transform: translateY(-1px);
+}
+
+.device-btn:active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   响应式设计 - 测试页面
+   ========================================================================== */
+
+/* 超小屏幕 (手机竖屏) */
+@media (max-width: 480px) {
+  .responsive-test {
+    padding: var(--space-12) 0;
+  }
+  
+  .breakpoint-indicators {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .test-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .test-item {
+    padding: var(--space-4);
+  }
+  
+  .grid-test {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .button-test {
+    flex-direction: column;
+  }
+  
+  .device-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .device-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* 小屏幕 (手机横屏/小平板) */
+@media (max-width: 768px) {
+  .breakpoint-indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .test-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-test {
+    justify-content: center;
+  }
+}
+
+/* 中等屏幕 (平板) */
+@media (max-width: 1024px) {
+  .breakpoint-indicators {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .test-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 大屏幕 (桌面) */
+@media (min-width: 1025px) {
+  .breakpoint-indicators {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .test-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 超大屏幕 */
+@media (min-width: 1536px) {
+  .responsive-test .container {
+    max-width: 1400px;
+  }
+  
+  .test-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 600px) and (orientation: landscape) {
+  .responsive-test {
+    min-height: auto;
+    padding: var(--space-12) 0;
+  }
+  
+  .breakpoint-indicators {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .breakpoint-indicator {
+    border-left: 4px solid #000;
+  }
+  
+  .grid-item {
+    border: 2px solid #000;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .responsive-test {
+    background: linear-gradient(135deg, var(--color-gray-800) 0%, var(--color-gray-900) 100%);
+  }
+  
+  .test-item,
+  .breakpoint-indicator,
+  .device-emulation {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-700);
+  }
+  
+  .typography-test p {
+    background: var(--color-gray-700);
+  }
+}
+
+/* 减少运动支持 */
+@media (prefers-reduced-motion: reduce) {
+  .breakpoint-indicator,
+  .grid-item,
+  .device-btn {
+    transition: none;
+    transform: none;
+  }
+}

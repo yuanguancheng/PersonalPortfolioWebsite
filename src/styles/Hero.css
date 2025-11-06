@@ -50,28 +50,157 @@
   border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
+/* ==========================================================================
+   响应式设计 - Hero部分
+   ========================================================================== */
+
+/* 超小屏幕 (手机竖屏) */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 90vh;
+    padding-top: 60px;
+  }
+  
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-6);
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-3);
+  }
+  
+  .hero-content p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .profile-placeholder {
+    width: 160px;
+    height: 160px;
+    font-size: var(--font-size-base);
+  }
+}
+
+/* 小屏幕 (手机横屏/小平板) */
 @media (max-width: 768px) {
   .hero .container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2rem;
+    gap: var(--space-8);
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
   }
   
   .hero-content p {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-8);
   }
   
   .hero-buttons {
     justify-content: center;
     flex-wrap: wrap;
+    gap: var(--space-4);
   }
   
   .profile-placeholder {
     width: 200px;
     height: 200px;
+  }
+}
+
+/* 中等屏幕 (平板) */
+@media (max-width: 1024px) {
+  .hero .container {
+    gap: var(--space-10);
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .profile-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* 超大屏幕优化 */
+@media (min-width: 1536px) {
+  .hero .container {
+    max-width: 1400px;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-6xl);
+  }
+  
+  .hero-content p {
+    font-size: var(--font-size-xl);
+  }
+  
+  .profile-placeholder {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-20) 0;
+  }
+  
+  .hero .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .profile-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .hero {
+    background: linear-gradient(135deg, #4a6fa5 0%, #5a3d78 100%);
+  }
+  
+  .profile-placeholder {
+    border: 3px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* 减少运动支持 */
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    background: #667eea;
+  }
+  
+  .profile-placeholder {
+    animation: none;
   }
 }
